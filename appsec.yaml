@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /    # Path to the build artifacts
+    destination: /var/www/html    # Path on the EC2 instance
+hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_application.sh
+      timeout: 300
+      runas: root
