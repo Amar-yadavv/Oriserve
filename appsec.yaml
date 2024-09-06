@@ -5,10 +5,10 @@ files:
     destination: /var/www/html    # Path on the EC2 instance
 hooks:
   AfterInstall:
-    - location: scripts/install_dependencies.sh
+    - location: scripts/insall_nginx.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: scripts/start_application.sh
+    - location: scripts/start_nginx.sh
       timeout: 300
       runas: root
